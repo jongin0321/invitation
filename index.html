@@ -252,6 +252,17 @@ section{padding:64px 26px;position:relative;}
 .copy-btn:active{background:var(--accent);color:#fff;}
 .account .sub-photo{margin-top:28px;margin-bottom:0;}
 
+/* ===================== INFO TABS (주차안내 / 연회장 안내) ===================== */
+.info{background:var(--cream);}
+.info-tabs{display:flex;background:var(--paper);border-radius:30px;padding:4px;margin-bottom:20px;border:1px solid var(--line);}
+.info-tab{flex:1;text-align:center;padding:10px 0;border-radius:26px;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;}
+.info-tab.active{background:var(--accent);color:#fff;}
+.info-panel{display:none;}
+.info-panel.active{display:block;}
+.info-photo{width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--line);margin-bottom:18px;}
+.info-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.info-text{text-align:center;font-size:14px;line-height:1.9;color:var(--ink);}
+
 /* ===================== FOOTER ===================== */
 .footer{background:var(--paper);text-align:center;padding:50px 26px 90px;}
 .footer .sub-photo{margin-bottom:24px;}
@@ -337,6 +348,35 @@ section{padding:64px 26px;position:relative;}
   </section>
 
   <div class="divider reveal"><span class="ln"></span><i class="fa-solid fa-heart"></i><span class="ln"></span></div>
+
+<!-- ===================== INFO (주차안내/연회장 안내) ===================== -->
+<section class="info reveal">
+  <div class="eyebrow">Info</div>
+  <h2 class="section-heading">안내사항</h2>
+
+  <div class="info-tabs">
+    <div class="info-tab active" data-target="infoParking">주차안내</div>
+    <div class="info-tab" data-target="infoHall">연회장 안내</div>
+  </div>
+
+  <div class="info-panel active" id="infoParking">
+    <div class="info-photo"><img src="./parking.jpg" alt="주차 안내"></div>
+    <p class="info-text">
+      주차장은 약 1100대 규모로 마련되어 있습니다.<br>
+      진입로가 혼잡할 수 있으니<br>
+      주차요원의 안내를 받아 주차해 주시기 바랍니다.
+    </p>
+  </div>
+
+  <div class="info-panel" id="infoHall">
+    <div class="info-photo"><img src="./hall.jpg" alt="연회장 안내"></div>
+    <p class="info-text">
+      소중한 발걸음 해주신 만큼 맛있는 식사와 함께<br>
+      편안한 시간을 보내시길 바랍니다.<br>
+      연회장 이용 시간은 오후 1시 ~ 오후 3시 30분 입니다.
+    </p>
+  </div>
+</section>
 
   <!-- ===================== DATE / CALENDAR / COUNTDOWN ===================== -->
   <section class="datesec reveal">
@@ -719,6 +759,16 @@ document.querySelectorAll('.acc-tab').forEach(tab=>{
   tab.addEventListener('click', ()=>{
     document.querySelectorAll('.acc-tab').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.acc-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+  });
+});
+
+/* ============ 안내사항 탭 (주차안내/연회장 안내) ============ */
+document.querySelectorAll('.info-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.info-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.info-panel').forEach(p=>p.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById(tab.getAttribute('data-target')).classList.add('active');
   });
