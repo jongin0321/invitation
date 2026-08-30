@@ -252,7 +252,7 @@ section{padding:64px 26px;position:relative;}
 .copy-btn:active{background:var(--accent);color:#fff;}
 .account .sub-photo{margin-top:28px;margin-bottom:0;}
 
-/* ===================== INFO TABS (주차안내 / 연회장 안내) ===================== */
+/* ===================== INFO TABS (주차 안내 / 연회장 안내) ===================== */
 .info{background:var(--cream);}
 .info-tabs{display:flex;background:var(--paper);border-radius:30px;padding:4px;margin-bottom:20px;border:1px solid var(--line);}
 .info-tab{flex:1;text-align:center;padding:10px 0;border-radius:26px;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;}
@@ -515,13 +515,13 @@ section{padding:64px 26px;position:relative;}
   </section>
   <div class="divider reveal"><span class="ln"></span><i class="fa-solid fa-heart"></i><span class="ln"></span></div>
 
-<!-- ===================== INFO (주차안내/연회장 안내) ===================== -->
+<!-- ===================== INFO (주차 안내/연회장 안내) ===================== -->
 <section class="info reveal">
   <div class="eyebrow">Info</div>
   <h2 class="section-heading">안내사항</h2>
 
   <div class="info-tabs">
-    <div class="info-tab active" data-target="infoParking">주차안내</div>
+    <div class="info-tab active" data-target="infoParking">주차 안내</div>
     <div class="info-tab" data-target="infoHall">연회장 안내</div>
   </div>
 
@@ -772,7 +772,7 @@ document.querySelectorAll('.acc-tab').forEach(tab=>{
   });
 });
 
-/* ============ 안내사항 탭 (주차안내/연회장 안내) ============ */
+/* ============ 안내사항 탭 (주차 안내/연회장 안내) ============ */
 document.querySelectorAll('.info-tab').forEach(tab=>{
   tab.addEventListener('click', ()=>{
     document.querySelectorAll('.info-tab').forEach(t=>t.classList.remove('active'));
