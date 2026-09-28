@@ -544,6 +544,11 @@ section{padding:64px 26px;position:relative;}
 <div class="toast" id="toast"></div>
 
 <script>
+history.scrollRestoration = 'manual';
+
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+});
 /* ============ 기본 설정 ============ */
 const WEDDING_DATE = new Date('2026-11-07T14:00:00+09:00');
 const VENUE_NAME = '아르떼웨딩컨벤션';
