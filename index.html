@@ -700,9 +700,15 @@ function setGalleryIndex(idx){
     el.classList.toggle('active', isActive);
     
     // 선택된 썸네일을 자동으로 중앙/화면 안으로 부드럽게 스크롤
-    if (isActive) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
+if (isActive) {
+  const container = el.parentElement;
+
+  const targetLeft =
+    el.offsetLeft - (container.clientWidth - el.clientWidth) / 2;
+
+  container.scrollTo({
+    left: targetLeft,
+    behavior: 'smooth'
   });
 }
 setGalleryIndex(0);
