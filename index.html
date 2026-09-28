@@ -544,11 +544,6 @@ section{padding:64px 26px;position:relative;}
 <div class="toast" id="toast"></div>
 
 <script>
-history.scrollRestoration = 'manual';
-
-window.addEventListener('load', function() {
-  window.scrollTo(0, 0);
-});
 /* ============ 기본 설정 ============ */
 const WEDDING_DATE = new Date('2026-11-07T14:00:00+09:00');
 const VENUE_NAME = '아르떼웨딩컨벤션';
@@ -700,15 +695,9 @@ function setGalleryIndex(idx){
     el.classList.toggle('active', isActive);
     
     // 선택된 썸네일을 자동으로 중앙/화면 안으로 부드럽게 스크롤
-if (isActive) {
-  const container = el.parentElement;
-
-  const targetLeft =
-    el.offsetLeft - (container.clientWidth - el.clientWidth) / 2;
-
-  container.scrollTo({
-    left: targetLeft,
-    behavior: 'smooth'
+    if (isActive) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   });
 }
 setGalleryIndex(0);
@@ -806,5 +795,7 @@ document.getElementById('kakaoShareBtn').addEventListener('click', ()=>{
   });
 });
 </script>
+</body>
+</html>
 </body>
 </html>
